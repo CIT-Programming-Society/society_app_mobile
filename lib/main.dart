@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:society_app_mobile/components/home.dart';
+import 'package:society_app_mobile/data_model/CounterModel.dart';
 
 void main() => runApp(MyApp());
 
@@ -21,7 +23,10 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(title: 'Flutter Demo Home Page'),
+      home: ChangeNotifierProvider<CounterNotifierModel>(
+        create: (_) => CounterNotifierModel(21),
+        child: MyHomePage(title: 'Flutter Demo Home Page'),
+        ),
     );
   }
 }
