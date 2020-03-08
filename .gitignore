@@ -12,6 +12,7 @@
 .pub/
 build/
 **/pubspec.lock
+**/google-services.json
 
 # Android related
 **/android/**/gradle-wrapper.jar
