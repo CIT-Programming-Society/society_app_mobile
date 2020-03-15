@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:society_app_mobile/Styling/AppTheme.dart';
+import 'package:society_app_mobile/Styling/app_theme.dart';
 import 'package:society_app_mobile/components/home.dart';
 import 'package:society_app_mobile/data_model/CounterModel.dart';
 

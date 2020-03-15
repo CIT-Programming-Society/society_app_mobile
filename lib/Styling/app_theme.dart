@@ -4,8 +4,8 @@ ThemeData appTheme()
 {
   return ThemeData
   (
-    primaryColor: Colors.red[900],
+    primaryColor: Colors.red.shade900,
     brightness: Brightness.dark,
-    accentColor: Colors.red[900],
+    accentColor: Colors.red.shade800,//shade
   );
 }
