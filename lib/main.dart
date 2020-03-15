@@ -3,9 +3,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:society_app_mobile/Styling/app_theme.dart';
-import 'package:society_app_mobile/components/home.dart';
 import 'package:society_app_mobile/data_model/CounterModel.dart';
-import 'package:society_app_mobile/test_ui.dart';
+import 'package:society_app_mobile/ui/orientation_layout.dart';
+import 'package:society_app_mobile/ui/screen_type_layout.dart';
+import 'package:society_app_mobile/views/home/home.dart';
 
 void main() => runApp(DevicePreview(
       builder: (context) => MyApp(),
@@ -24,10 +25,21 @@ class MyApp extends StatelessWidget {
       theme: appTheme(),
       home: ChangeNotifierProvider<CounterNotifierModel>(
         create: (_) => CounterNotifierModel(0),
-        // child: MyHomePage(title: 'Society App'),
-        child: HomeView(),
+        child: ScreenTypeLayout(
+          mobile: OrientationLayout(
+            portrait: MyHomePage(title: 'Society App - Mobile Portrait'),
+            landscape: MyHomePage(title: 'Society App - Mobile Landscape'),
+          ),
+          tablet: OrientationLayout(
+            portrait: MyHomePage(title: 'Society App - Tablet Portrait'),
+            landscape: MyHomePage(title: 'Society App - Tablet Landscape'),
+          ),
+          desktop: OrientationLayout(
+            portrait: MyHomePage(title: 'Society App - Desktop Portrait'),
+            landscape: MyHomePage(title: 'Society App - Desktop Landscape'),
+          ),
         ),
-
+      ),
     );
   }
 }
