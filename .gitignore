@@ -57,3 +57,6 @@ build/
 !/packages/flutter_tools/test/data/dart_dependencies_test/**/.packages
 
 # End of https://www.gitignore.io/api/flutter
+
+android/.project
+android/.settings/
