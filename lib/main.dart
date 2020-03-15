@@ -1,9 +1,15 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:society_app_mobile/components/home.dart';
 import 'package:society_app_mobile/data_model/CounterModel.dart';
+import 'package:society_app_mobile/test_ui.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(DevicePreview(
+      builder: (context) => MyApp(),
+      enabled: !kReleaseMode,
+    ));
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -11,6 +17,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      locale: DevicePreview.of(context).locale,
+      builder: DevicePreview.appBuilder,
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -25,8 +33,8 @@ class MyApp extends StatelessWidget {
       ),
       home: ChangeNotifierProvider<CounterNotifierModel>(
         create: (_) => CounterNotifierModel(21),
-        child: MyHomePage(title: 'Flutter Demo Home Page'),
-        ),
+        child: HomeView(),
+      ),
     );
   }
 }
