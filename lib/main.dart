@@ -23,7 +23,16 @@ class MyApp extends StatelessWidget {
       builder: DevicePreview.appBuilder,
       debugShowCheckedModeBanner: false,
       theme: appTheme(),
-      home: ChangeNotifierProvider<CounterNotifierModel>(
+      initialRoute: "/",
+      routes: {
+        "/": (context) => getHome(),
+      },
+    );
+  }
+}
+
+Widget getHome(){
+  return ChangeNotifierProvider<CounterNotifierModel>(
         create: (_) => CounterNotifierModel(0),
         child: ScreenTypeLayout(
           mobile: OrientationLayout(
@@ -39,7 +48,5 @@ class MyApp extends StatelessWidget {
             landscape: MyHomePage(title: 'Society App - Desktop Landscape'),
           ),
         ),
-      ),
-    );
-  }
+      );
 }
